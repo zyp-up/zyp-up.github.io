@@ -5,7 +5,7 @@
 # ==================== 基本站点设置 ====================
 locale                   : "en-US"              # 站点语言/地区，如 "zh-CN" 为中文
 site_theme               : "default"             # 站点主题，可选值："default"、"air"、"sunrise"、"mint"、"dirt"、"contrast"
-title                    : "Yunpeng Zhang's Academic Homepage" # 网站标题，显示在浏览器标签页和页面顶部
+title                    : "Yunpeng's Academic Homepage" # 网站标题，显示在浏览器标签页和页面顶部
 title_separator          : "-"                    # 标题分隔符，如页面标题与站点标题之间的连接符
 name                     : &name "Yunpeng Zhang"  # 站点所有者姓名，&name 是 YAML 锚点，方便后面引用
 description              : &description "Yunpeng Zhang's academic portfolio and research homepage" # 站点描述，用于 SEO 和社交分享时的默认描述
