@@ -22,7 +22,7 @@ author:
   avatar           : "profile.png"              # 头像图片文件名，需放在 /images/ 目录下
   name             : "Yunpeng Zhang"             # 侧边栏显示的姓名（粗体大字）
   pronouns         :                             # 人称代词，如 "he/him"、"she/her"，不需要可留空
-  bio              : "Short biography for the left-hand sidebar" # 姓名下方的一句话简介，如 "博士研究生"、"助理教授"
+  bio              : "AI Enthusiast. Lifelong Builder." # 姓名下方的一句话简介，如 "博士研究生"、"助理教授"
   location         : "Earth"                     # 地理位置，显示📍图标 + 文字，如 "Beijing, China"
   employer         : "Red Brick University"      # 所属单位/学校，显示🏛图标 + 文字
   uri              :                             # 个人主页 URL，填写后姓名变为可点击链接
