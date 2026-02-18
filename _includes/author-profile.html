@@ -172,5 +172,34 @@
       <li><a href="https://www.zhihu.com/people/{{ author.zhihu }}"><i class="fab fa-fw fa-zhihu icon-pad-right" aria-hidden="true"></i>Zhihu</a></li>
       {% endif %}      
     </ul>
+    
+    <!-- 访客统计显示 -->
+    <div class="author__visitors" style="margin-top: 15px; padding: 10px 0; border-top: 1px solid #f0f0f0; text-align: center; font-size: 0.85em; color: #666; line-height: 1.8;">
+      <div><i class="fas fa-fw fa-user" aria-hidden="true"></i> Visitors: <span id="busuanzi_value_site_uv" style="font-weight: bold; color: #52adc8;">--</span></div>
+      <div><i class="fas fa-fw fa-eye" aria-hidden="true"></i> Views: <span id="busuanzi_value_site_pv" style="font-weight: bold; color: #52adc8;">--</span></div>
+    </div>
+    
+    <script>
+      // 修正不蒜子统计的初始偏移值
+      document.addEventListener('DOMContentLoaded', function() {
+        const INITIAL_UV = 54429276;  // 记录的初始访客数
+        const INITIAL_PV = 78025038;  // 记录的初始浏览量
+        
+        const checkAndUpdate = setInterval(function() {
+          const uvElement = document.getElementById('busuanzi_value_site_uv');
+          const pvElement = document.getElementById('busuanzi_value_site_pv');
+          
+          if (uvElement && uvElement.textContent !== '--') {
+            const realUV = parseInt(uvElement.textContent) - INITIAL_UV;
+            uvElement.textContent = realUV > 0 ? realUV : 0;
+            
+            const realPV = parseInt(pvElement.textContent) - INITIAL_PV;
+            pvElement.textContent = realPV > 0 ? realPV : 0;
+            
+            clearInterval(checkAndUpdate);
+          }
+        }, 100);
+      });
+    </script>
   </div>
 </div>
