@@ -8,10 +8,97 @@ author_profile: true
 {% include base_path %}
 {% include group-by-array collection=site.posts field="tags" %}
 
-{% for tag in group_names %}
-  {% assign posts = group_items[forloop.index0] %}
-  <h2 id="{{ tag | slugify }}" class="archive__subtitle">{{ tag }}</h2>
-  {% for post in posts %}
-    {% include archive-single.html %}
+<style>
+  .tag-filter-buttons {
+    margin-bottom: 2em;
+  }
+  .tag-filter-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+  }
+  .tag-filter-btn:hover {
+    background-color: #f0f0f0;
+  }
+  .tag-filter-btn.active {
+    background-color: #24292e;
+    color: white;
+    border-color: #24292e;
+  }
+  [data-tag-section] {
+    display: none;
+  }
+  [data-tag-section].visible {
+    display: block;
+  }
+</style>
+
+<div class="tag-filter-buttons">
+  <button class="tag-filter-btn active" data-index="all">Show All</button>
+  {% for tag in group_names %}
+    <button class="tag-filter-btn" data-index="{{ forloop.index0 }}">{{ tag }}</button>
   {% endfor %}
-{% endfor %}
+</div>
+
+<div id="all-tags">
+  {% for tag in group_names %}
+    {% assign posts = group_items[forloop.index0] %}
+    <section data-tag-section="visible" class="visible" data-index="{{ forloop.index0 }}">
+      <h2 class="archive__subtitle">{{ tag }}</h2>
+      {% for post in posts %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </section>
+  {% endfor %}
+</div>
+
+<script>
+function setupTagFilter() {
+  var buttons = document.querySelectorAll('.tag-filter-btn');
+  var sections = document.querySelectorAll('[data-tag-section]');
+  
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var targetIndex = this.getAttribute('data-index');
+      sections.forEach(function(section) {
+        section.classList.remove('visible');
+      });
+      
+      if (targetIndex === 'all') {
+        sections.forEach(function(section) {
+          section.classList.add('visible');
+        });
+        buttons.forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+      } else {
+        var sectionIndex = parseInt(targetIndex);
+        sections.forEach(function(section) {
+          if (parseInt(section.getAttribute('data-index')) === sectionIndex) {
+            section.classList.add('visible');
+          }
+        });
+        buttons.forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+      }
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupTagFilter);
+} else {
+  setupTagFilter();
+}
+</script>
+</script>

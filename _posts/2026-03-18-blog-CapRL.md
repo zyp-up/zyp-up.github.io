@@ -2,21 +2,19 @@
 title: 'CapRL: 用强化学习激发视觉语言模型的描述能力'
 date: 2026-03-18
 reading_time: "30 minutes read"
-permalink: /posts/2026/03/blog-post-1/
+permalink: /posts/2026/03/CapRL/
 tags:
   - VLM
   - RL
 ---
 
-> **Paper**: [CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning](https://arxiv.org/pdf/2509.22647) (CVPR 2025)
-
-> **Authors**: Xing et al.
-
+> **Paper**: [CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning](https://arxiv.org/pdf/2509.22647) (CVPR 2025)  
+> **Authors**: Xing et al.  
 > **TL;DR**: CapRL提出了一种新颖的强化学习框架，通过将主观的"描述好不好"问题转化为客观的"问题能否答对"问题，有效解决了图像描述任务中的reward hacking难题，显著提升了模型生成稠密、准确（Dense and Accurate）描述的能力。
 
 ***
 
-# 1. 引言：一个"简单"任务的深层挑战
+# 1. 引言：一个“简单”任务的深层挑战
   
 
 图像描述（Image Captioning）看似是一个直观的任务——给定一张图片，让模型生成一段描述文字。然而，当我们追问"什么样的描述才是好的描述"时，事情变得复杂起来。这篇论文致力于解决图像描述生成领域的一个核心难题：如何让模型生成既信息丰富（Dense）**又**准确无误（Accurate）的图像描述。
@@ -304,10 +302,11 @@ CapRL为图像描述任务的强化学习训练提供了一个优雅而实用的
 
 ***
 
-**延伸阅读**：如果你对RLHF和奖励模型设计感兴趣，以下工作值得进一步了解：
+# 9. 延伸阅读
+如果你对RLHF和奖励模型设计感兴趣，以下工作值得进一步了解：
 
-- **RLAIF**：Constitutional AI, Anthropic 2023 —— 使用AI反馈替代人类反馈
+- **RLAIF**：[Constitutional AI](https://arxiv.org/abs/2212.08073), Anthropic 2023 —— 使用AI反馈替代人类反馈
   
-- **RLVR**：DeepSeek-R1 —— 基于可验证奖励的强化学习
+- **RLVR**：[DeepSeek-R1](https://arxiv.org/abs/2501.12948) —— 基于可验证奖励的强化学习
   
-- **Self-Rewarding LM**：Meta 2024 —— 让模型自我评判以实现迭代改进
+- **Self-Rewarding LM**：[Meta 2024](https://arxiv.org/abs/2401.10020) —— 让模型自我评判以实现迭代改进
