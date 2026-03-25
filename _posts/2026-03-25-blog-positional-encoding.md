@@ -2,6 +2,7 @@
 title: '位置编码的发展历程：从绝对、相对到多模态旋转编码'
 date: 2026-03-25
 permalink: /posts/2026/03/positional-encoding/
+reading_time: "30 minutes read"
 tags:
   - Positional Encoding
   - LLM
