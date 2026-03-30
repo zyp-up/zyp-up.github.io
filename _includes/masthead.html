@@ -14,8 +14,30 @@
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
-              <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+            {% assign isHomePage = false %}
+            {% if page.url == '/' or page.url == '/index.html' %}
+              {% assign isHomePage = true %}
+            {% endif %}
+            
+            {% if link.target_url %}
+              {% assign isCurrentPage = false %}
+              {% if page.url == link.target_url or page.url == link.target_url | append: '/' %}
+                {% assign isCurrentPage = true %}
+              {% endif %}
+              
+              {% if isHomePage %}
+                {% assign nav_href = domain | append: link.url %}
+              {% elsif isCurrentPage %}
+                {% assign nav_href = domain | append: link.target_url %}
+              {% else %}
+                {% assign nav_href = domain | append: link.url %}
+              {% endif %}
+            {% else %}
+              {% assign nav_href = domain | append: link.url %}
+            {% endif %}
+            
+            <li class="masthead__menu-item {% if page.url == link.target_url or page.url == link.url %}selected{% endif %}">
+              <a href="{{ nav_href }}" class="nav-link">{{ link.title }}</a>
             </li>
           {% endfor %}
           <li id="theme-toggle" class="masthead__menu-item persist tail">

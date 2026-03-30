@@ -10,9 +10,11 @@
 main:
   - title: "Blog Posts"
     url: /#blog-posts
+    target_url: /blog/
     
   - title: "Publications"
     url: /#publications
+    target_url: /publications/
 
   - title: "Educations"
     url: /#educations
@@ -28,9 +30,10 @@ main:
 
   - title: "Portfolio"
     url: /#portfolio
+    target_url: /portfolio/
     
   - title: "CV"
-    url: /#cv
+    url: /cv/
 
   # - title: "Talks"
   #   url: /talks/    
