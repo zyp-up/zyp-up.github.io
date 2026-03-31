@@ -111,7 +111,7 @@ redirect_from:
   </div>
 </div>
 
-<p>📖 <a href="{{ '/year-archive/' | relative_url }}">View all blog posts →</a></p>
+<p>📖 <a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
 
 ---
 
