@@ -33,8 +33,8 @@ main:
     target_url: /portfolio/
     
   - title: "CV"
-    url: /cv/
-
+    url: /#cv
+    target_url: /cv/
   # - title: "Talks"
   #   url: /talks/    
 

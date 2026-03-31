@@ -68,12 +68,25 @@
   }
 }
 
+/* Original code - disabled to make logo clickable on all pages
 .masthead__menu-item.selected a {
   color: var(--global-text-color);
   font-weight: 700;
   border-bottom: 2px solid var(--global-text-color);
-  pointer-events: none; /* Move this here */
-  cursor: default; /* Move this here too */
+  pointer-events: none;
+  cursor: default;
+}
+*/
+
+.masthead__menu-item.masthead__menu-item--lg a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.masthead__menu-item.selected a {
+  color: var(--global-text-color);
+  font-weight: 700;
+  border-bottom: 2px solid var(--global-text-color);
 }
 
 .masthead__menu-item.selected a:hover {
