@@ -128,8 +128,11 @@ redirect_from:
 ## 📖 Educations {#educations}
 
 <div class="section-content">
-  <!-- Add your education details here -->
-  <p style="color: #999; font-style: italic;">To be added...</p>
+  <ul>
+    <li>
+      <strong>2022.09 - 2026.06</strong> &nbsp;|&nbsp; Undergraduate, <strong>China Jiliang University</strong>, Hangzhou, Zhejiang, China
+    </li>
+  </ul>
 </div>
 
 ---
@@ -137,8 +140,11 @@ redirect_from:
 ## 🏆 Honors and Awards {#honors-and-awards}
 
 <div class="section-content">
-  <!-- Add your honors and awards here -->
-  <p style="color: #999; font-style: italic;">To be added...</p>
+  <ul>
+    <li>
+      <strong>2025</strong> &nbsp;|&nbsp; Provincial Government Scholarship
+    </li>
+  </ul>
 </div>
 
 ---
