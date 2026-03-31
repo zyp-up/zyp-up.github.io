@@ -140,8 +140,17 @@ Welcome to my personal website! I'm a passionate researcher and developer intere
 ## 💻 Internships {#internships}
 
 <div class="section-content">
-  <!-- Add your internship experiences here -->
-  <p style="color: #999; font-style: italic;">To be added...</p>
+  <ul>
+    <li>
+      <strong>2026.02 - 2026.07</strong>: <a href="https://www.bytedance.com/zh/" target="_blank">ByteDance</a>, Data-AML, VLM/LLM Application Algorithm Intern. <em>Shenzhen, Guangdong, China</em>
+    </li>
+    <li>
+      <strong>2025.10 - 2026.01</strong>: <a href="https://www.xiaopeng.com/" target="_blank">XPeng Motors</a>, Intelligent Cockpit Center, VLM Foundation Model Algorithm Intern. <em>Beijing, China</em>
+    </li>
+    <li>
+      <strong>2025.07 - 2025.10</strong>: <a href="https://www.truesightai.com/" target="_blank">Truesight</a>, AI Research, Computer Vision R&D Intern. <em>Xiamen, Fujian, China</em>
+    </li>
+  </ul>
 </div>
 
 ---
