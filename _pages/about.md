@@ -85,7 +85,13 @@ redirect_from:
 
 ## 🧐 About Me {#about-me}
 
-Welcome to my personal website! I'm a passionate researcher and developer interested in AI, machine learning, security, and computer systems. This site showcases my research, publications, and professional experiences.
+<div class="section-content">
+  <p>👀 <strong>Hi, I'm Yunpeng Zhang</strong>, an AI practitioner passionate about pushing the boundaries of large model capabilities. My core work revolves around post-training of VLMs/LLMs, including SFT, RL, and data recipe design. Beyond that, I'm actively exploring AIGC, Agentic RL, and World Models &mdash; <em>stay foolish, stay hungry</em>.</p>
+
+  <p>🧠 I'm committed to turning research ideas into practical, reproducible engineering work. I believe AI is not a weapon to replace humanity, but a force to liberate human productivity &mdash; freeing people to pursue the higher-value endeavors that are uniquely human.</p>
+
+  <p>🤝 Open to discussion and collaboration on AI-related projects &mdash; feel free to reach out!</p>
+</div>
 
 ---
 
@@ -142,13 +148,18 @@ Welcome to my personal website! I'm a passionate researcher and developer intere
 <div class="section-content">
   <ul>
     <li>
-      <strong>2026.02 - 2026.07</strong>: <a href="https://www.bytedance.com/zh/" target="_blank">ByteDance</a>, Data-AML, VLM/LLM Application Algorithm Intern. <em>Shenzhen, Guangdong, China</em>
+      <strong>2026.02 - 2026.07</strong> &nbsp;|&nbsp; <a href="https://www.bytedance.com/zh/" target="_blank"><strong>ByteDance</strong></a> &nbsp;&ndash;&nbsp; Data-AML<br>
+      <em>VLM/LLM Application Algorithm Intern</em> &nbsp;&bull;&nbsp; Shenzhen, Guangdong, China
     </li>
+    <br>
     <li>
-      <strong>2025.10 - 2026.01</strong>: <a href="https://www.xiaopeng.com/" target="_blank">XPeng Motors</a>, Intelligent Cockpit Center, VLM Foundation Model Algorithm Intern. <em>Beijing, China</em>
+      <strong>2025.10 - 2026.01</strong> &nbsp;|&nbsp; <a href="https://www.xiaopeng.com/" target="_blank"><strong>XPeng Motors</strong></a> &nbsp;&ndash;&nbsp; Intelligent Cockpit Center<br>
+      <em>VLM Foundation Model Algorithm Intern</em> &nbsp;&bull;&nbsp; Beijing, China
     </li>
+    <br>
     <li>
-      <strong>2025.07 - 2025.10</strong>: <a href="https://www.truesightai.com/" target="_blank">Truesight</a>, AI Research, Computer Vision R&D Intern. <em>Xiamen, Fujian, China</em>
+      <strong>2025.07 - 2025.10</strong> &nbsp;|&nbsp; <a href="https://www.truesightai.com/" target="_blank"><strong>Truesight</strong></a> &nbsp;&ndash;&nbsp; AI Research<br>
+      <em>Computer Vision R&D Intern</em> &nbsp;&bull;&nbsp; Xiamen, Fujian, China
     </li>
   </ul>
 </div>
@@ -158,8 +169,10 @@ Welcome to my personal website! I'm a passionate researcher and developer intere
 ## 🎯 Hobbies {#hobbies}
 
 <div class="section-content">
-  <!-- Add your hobbies here -->
-  <p style="color: #999; font-style: italic;">To be added...</p>
+  <p style="font-size: 1.1em; line-height: 1.8;">
+    🏋️‍♂️ <strong>Fitness</strong> &nbsp;&bull;&nbsp; 🏀 <strong>Basketball</strong> &nbsp;&bull;&nbsp; 🏊‍♂️ <strong>Swimming</strong> &nbsp;&bull;&nbsp; 🏄‍♂️ <strong>Surfing</strong> &nbsp;&bull;&nbsp; ⛳ <strong>Golf</strong> &nbsp;&bull;&nbsp; 🎾 <strong>Tennis</strong>
+  </p>
+  <p><em>...and I'm always open to trying any new sports!</em></p>
 </div>
 
 ---
