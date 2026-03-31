@@ -114,6 +114,11 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 
+  html[data-theme="dark"] & {
+    background: transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
   &:hover {
     box-shadow: 0 4px 16px rgba(230, 126, 34, 0.3), 0 4px 16px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);

@@ -18,20 +18,21 @@ redirect_from:
     padding: 0.5em 1em;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
-    border: 1px solid #d9d9d9;
+    border: 1px solid var(--global-border-color);
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
     cursor: pointer;
     transition: all 0.3s;
     font-size: 14px;
   }
   .blog-tag-filter-btn:hover {
-    background-color: #f0f0f0;
+    background-color: var(--global-code-background-color);
   }
   .blog-tag-filter-btn.active {
-    background-color: #24292e;
-    color: white;
-    border-color: #24292e;
+    background-color: var(--global-text-color);
+    color: var(--global-bg-color);
+    border-color: var(--global-text-color);
   }
   .post-item.hidden {
     display: none;
