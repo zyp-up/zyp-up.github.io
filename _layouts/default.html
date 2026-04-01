@@ -11,7 +11,7 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body data-page-key="{{ page.url | slugify }}" data-increment-view="{% if page.url contains '/posts/' or page.layout == 'single' %}true{% else %}false{% endif %}">
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
@@ -26,48 +26,6 @@ layout: compress
     </div>
 
     {% include scripts.html %}
-
-    <script>
-      (function() {
-        var namespace = "zypup_blog_pv";
-        
-        function initCounters() {
-          {% if page.url contains '/posts/' or page.layout == 'single' %}
-          var pageKey = "{{ page.url | slugify }}";
-          if (pageKey) {
-            fetch("https://api.counterapi.dev/v1/" + namespace + "/" + pageKey + "/up").catch(function(e){});
-          }
-          {% endif %}
-          
-          var counters = document.querySelectorAll('.counter-view-span');
-          if (counters.length > 0) {
-            counters.forEach(function(el) {
-              var key = el.getAttribute('data-key');
-              if (key) {
-                fetch("https://api.counterapi.dev/v1/" + namespace + "/" + key + "/")
-                  .then(function(res) {
-                    if (!res.ok) { return { count: 0 }; }
-                    return res.json();
-                  })
-                  .then(function(data) {
-                    el.innerHTML = typeof data.count === 'number' ? data.count : 0;
-                  })
-                  .catch(function(err) {
-                    console.error("Counter API Error:", err);
-                    el.innerHTML = 0;
-                  });
-              }
-            });
-          }
-        }
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initCounters);
-        } else {
-          initCounters();
-        }
-      })();
-    </script>
 
   </body>
 </html>

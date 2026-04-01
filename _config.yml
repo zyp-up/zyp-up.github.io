@@ -158,6 +158,13 @@ analytics:
   google:
     tracking_id          : "G-XK21QDNQ2M"         # Google Analytics 跟踪 ID，如 "G-XXXXXXXXXX"
 
+# ==================== 页面浏览量统计 ====================
+page_views:
+  provider               : "worker"               # 可选："counterapi"（默认）或 "worker"（推荐长期稳定）
+  namespace              : "zypup_blog_pv"        # counterapi 命名空间
+  counterapi_endpoint    : "https://api.counterapi.dev/v1"
+  worker_endpoint        : "https://misty-shadow-e33bzypup-pageviews-api.yunpengzhangup.workers.dev"
+
 
 # ==================== 文件读取设置 ====================
 # 包含的文件/目录（Jekyll 默认会忽略以下内容，需要显式包含）

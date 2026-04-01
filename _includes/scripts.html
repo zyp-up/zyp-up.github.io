@@ -1,5 +1,15 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<script>
+	window.PAGE_VIEWS_CONFIG = {
+		provider: "{{ site.page_views.provider | default: 'counterapi' }}",
+		namespace: "{{ site.page_views.namespace | default: 'zypup_blog_pv' }}",
+		counterapi_endpoint: "{{ site.page_views.counterapi_endpoint | default: 'https://api.counterapi.dev/v1' }}",
+		worker_endpoint: "{{ site.page_views.worker_endpoint | default: '' }}"
+	};
+</script>
+<script src="{{ base_path }}/assets/js/page-views.js"></script>
+
 <!-- MathJax 延迟加载（只在有数学公式时加载） -->
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
