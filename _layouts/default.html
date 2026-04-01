@@ -28,39 +28,45 @@ layout: compress
     {% include scripts.html %}
 
     <script>
-      // 自动化实时浏览量统计脚本 (基于公共接口 counterapi.dev)
-      document.addEventListener("DOMContentLoaded", function() {
+      (function() {
         var namespace = "zypup_blog_pv";
         
-        // 1. 如果当前处于文章详情页，发送 /up 请求增加浏览量
-        {% if page.url contains '/posts/' or page.layout == 'single' %}
-        var pageKey = "{{ page.url | slugify }}";
-        if (pageKey) {
-          fetch("https://api.counterapi.dev/v1/" + namespace + "/" + pageKey + "/up").catch(function(e){});
+        function initCounters() {
+          {% if page.url contains '/posts/' or page.layout == 'single' %}
+          var pageKey = "{{ page.url | slugify }}";
+          if (pageKey) {
+            fetch("https://api.counterapi.dev/v1/" + namespace + "/" + pageKey + "/up").catch(function(e){});
+          }
+          {% endif %}
+          
+          var counters = document.querySelectorAll('.counter-view-span');
+          if (counters.length > 0) {
+            counters.forEach(function(el) {
+              var key = el.getAttribute('data-key');
+              if (key) {
+                fetch("https://api.counterapi.dev/v1/" + namespace + "/" + key + "/")
+                  .then(function(res) {
+                    if (!res.ok) { return { count: 0 }; }
+                    return res.json();
+                  })
+                  .then(function(data) {
+                    el.innerHTML = typeof data.count === 'number' ? data.count : 0;
+                  })
+                  .catch(function(err) {
+                    console.error("Counter API Error:", err);
+                    el.innerHTML = 0;
+                  });
+              }
+            });
+          }
         }
-        {% endif %}
-        
-        // 2. 如果页面有展示卡片，发送获取请求
-        var counters = document.querySelectorAll('.counter-view-span');
-        if (counters.length > 0) {
-          counters.forEach(function(el) {
-            var key = el.getAttribute('data-key');
-            if (key) {
-              fetch("https://api.counterapi.dev/v1/" + namespace + "/" + key)
-                .then(function(res) {
-                  if (!res.ok) { return { count: 0 }; }
-                  return res.json();
-                })
-                .then(function(data) {
-                  el.innerHTML = typeof data.count === 'number' ? data.count : 0;
-                })
-                .catch(function(err) {
-                  el.innerHTML = 0;
-                });
-            }
-          });
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initCounters);
+        } else {
+          initCounters();
         }
-      });
+      })();
     </script>
 
   </body>
