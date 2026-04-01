@@ -48,8 +48,6 @@ redirect_from:
   .blog-post-date {
     color: #666;
     font-size: 0.85em;
-    margin-bottom: 0.3em;
-    display: block;
   }
 
   .blog-post-title {
@@ -102,7 +100,10 @@ redirect_from:
     {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
     {% for post in sorted_posts limit: 20 %}
       <div class="blog-post-item">
-        <span class="blog-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3em;">
+          <span class="blog-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+          <span class="blog-post-views" style="font-size: 0.85em; color: #888;"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:#ccc;"></i></span> views</span>
+        </div>
         <h3 class="blog-post-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h3>
@@ -111,7 +112,13 @@ redirect_from:
   </div>
 </div>
 
-<p>📖 <a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1em;">
+  <p style="margin: 0;">📖 <a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
+  <div style="font-size: 0.85em; color: #888; text-align: right; line-height: 1.4;">
+    <em>正在奋笔疾书中，争取每月更新 💪</em><br>
+    <em>Writing hard and aiming for monthly updates.</em>
+  </div>
+</div>
 
 ---
 
