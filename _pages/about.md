@@ -71,6 +71,108 @@ redirect_from:
     line-height: 1.6;
   }
 
+  .education-section {
+    margin: 1em 0;
+    --edu-top-space: 1.5rem;
+    --edu-row-gap: 1rem;
+    --edu-bottom-space: 0.5rem;
+  }
+
+  .education-card {
+    border: 1px solid #d9d6cf;
+    border-radius: 16px;
+    background-color: #fffdf9;
+    padding: var(--edu-top-space) 1.1em var(--edu-bottom-space);
+    margin-bottom: 0.8em;
+    box-shadow: 0 2px 10px rgba(28, 36, 52, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: var(--edu-row-gap);
+  }
+
+  .education-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(28, 36, 52, 0.14);
+    border-color: #cbc5b8;
+  }
+
+  .education-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .education-school {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a2233;
+  }
+
+  .education-meta {
+    font-size: 1em;
+    line-height: 1.2;
+    color: #6b7384;
+  }
+
+  .education-divider {
+    color: #8a92a3;
+    font-size: 0.95em;
+  }
+
+  .education-detail {
+    margin: 0.2em 0;
+    font-size: 1em;
+    color: #6b7384;
+  }
+
+  .education-second-line {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.55em;
+    flex-wrap: wrap;
+    font-size: 1em;
+    line-height: 1.2;
+    color: #6b7384;
+    text-align: left;
+  }
+
+  @media (max-width: 760px) {
+    .education-section {
+      --edu-top-space: 1.3rem;
+      --edu-row-gap: 1rem;
+      --edu-bottom-space: 0.7rem;
+    }
+
+    .education-card {
+      border-radius: 12px;
+      padding: var(--edu-top-space) 0.9em var(--edu-bottom-space);
+      row-gap: var(--edu-row-gap);
+    }
+
+    .education-school {
+      font-size: 1em;
+    }
+
+    .education-meta {
+      font-size: 0.95em;
+      white-space: normal;
+    }
+
+    .education-second-line {
+      font-size: 0.95em;
+      justify-content: flex-start;
+      text-align: left;
+    }
+  }
+
   .empty-placeholder {
     color: #999;
     font-style: italic;
@@ -132,14 +234,32 @@ redirect_from:
 
 ---
 
-## 📖 Educations {#educations}
+## 📖 Education {#educations}
 
-<div class="section-content">
-  <ul>
-    <li>
-      <strong>2022.09 - 2026.06</strong> &nbsp;|&nbsp; Undergraduate, <strong>China Jiliang University</strong>, Hangzhou, Zhejiang, China
-    </li>
-  </ul>
+<div class="education-section">
+  <div class="education-card">
+    <div class="education-card-header">
+      <span class="education-school">University of Illinois Urbana-Champaign (UIUC)</span>
+      <span class="education-meta">Urbana-Champaign · USA | 2026 Fall</span>
+    </div>
+    <p class="education-second-line">
+      <span>Master of Engineering</span>
+      <span class="education-divider">|</span>
+      <span>Major in Electrical and Computer Engineering</span>
+    </p>
+  </div>
+
+  <div class="education-card">
+    <div class="education-card-header">
+      <span class="education-school">China Jiliang University (CJLU)</span>
+      <span class="education-meta">Hangzhou · China | Sept 2022 - Jun 2026</span>
+    </div>
+    <p class="education-second-line">
+      <span>Bachelor of Engineering (Honors)</span>
+      <span class="education-divider">|</span>
+      <span>Major in Optoelectronic Information Science and Engineering</span>
+    </p>
+  </div>
 </div>
 
 ---
