@@ -23,8 +23,9 @@ author:
   name             : "Yunpeng Zhang"             # 侧边栏显示的姓名（粗体大字）
   pronouns         :                             # 人称代词，如 "he/him"、"she/her"，不需要可留空
   bio              : "Stay foolish. Stay hungry." # 姓名下方的一句话简介，如 "博士研究生"、"助理教授"
-  location         : "Earth"                     # 地理位置，显示📍图标 + 文字，如 "Beijing, China"
-  employer         : "Red Brick University"      # 所属单位/学校，显示🏛图标 + 文字
+  location         : "Shenzhen, China / Urbana-Champaign, USA" # 地理位置，显示📍图标 + 文字，如 "Beijing, China"
+  employer         : "University of Illinois Urbana-Champaign (UIUC)" # 所属单位/学校，显示🏛图标 + 文字
+  employer_url     : "https://illinois.edu/"     # 第一学校链接
   uri              :                             # 个人主页 URL，填写后姓名变为可点击链接
   email            : "yunpengZhangup@outlook.com" # 邮箱地址，显示✉️图标，点击打开邮件客户端
   email2           : "yunpengzhangup@gmail.com"   # 第二个邮箱地址，显示✉️图标
@@ -62,7 +63,8 @@ author:
   keybase          :                             # Keybase 用户名
   instagram        :                             # Instagram 用户名
   lastfm           :                             # Last.fm 用户名（音乐平台）
-  linkedin         :                             # LinkedIn 用户名
+  linkedin         : "yunpeng-zhang" # LinkedIn 用户名
+  linkedin_url     : "https://www.linkedin.com/in/yunpeng-zhang-83627b3ab/" # LinkedIn 完整链接（可与显示用户名不同）
   mastodon         :                             # Mastodon 个人主页完整 URL
   medium           :                             # Medium 个人主页 URL
   pinterest        :                             # Pinterest 用户名

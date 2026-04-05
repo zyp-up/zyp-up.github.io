@@ -114,6 +114,18 @@ redirect_from:
     color: #1a2233;
   }
 
+  .education-school a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .education-school a:hover,
+  .education-school a:focus-visible {
+    color: #1f8db0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   .education-meta {
     font-size: 1em;
     line-height: 1.2;
@@ -239,7 +251,7 @@ redirect_from:
 <div class="education-section">
   <div class="education-card">
     <div class="education-card-header">
-      <span class="education-school">University of Illinois Urbana-Champaign (UIUC)</span>
+      <span class="education-school"><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign (UIUC)</a></span>
       <span class="education-meta">Urbana-Champaign · USA | 2026 Fall</span>
     </div>
     <p class="education-second-line">
@@ -251,7 +263,7 @@ redirect_from:
 
   <div class="education-card">
     <div class="education-card-header">
-      <span class="education-school">China Jiliang University (CJLU)</span>
+      <span class="education-school"><a href="https://english.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">China Jiliang University (CJLU)</a></span>
       <span class="education-meta">Hangzhou · China | Sept 2022 - Jun 2026</span>
     </div>
     <p class="education-second-line">
