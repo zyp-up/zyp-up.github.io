@@ -1,55 +1,69 @@
-# Page Views Setup (Stable Production)
+# Page Views Setup (Single Source of Truth)
 
-Current deployed values in this repository:
+This repository now uses a single-source strategy:
 
-- Provider: `worker`
-- KV namespace: `zyp-up-pageviews`
-- KV binding variable: `PAGE_VIEWS`
-- Worker endpoint: `https://misty-shadow-e33bzypup-pageviews-api.yunpengzhangup.workers.dev`
+- Data source: Cloudflare Worker + KV only
+- Fallback order in worker mode: primary worker -> backup worker
+- No fallback to CounterAPI when provider is worker (prevents data split)
 
-This site supports two providers:
+## 1) Recommended Architecture
 
-- `counterapi`: zero-setup, good for quick start
-- `worker`: long-term stable, recommended for production
+Use two domains, one storage:
 
-## 1) Recommended Production Setup (Cloudflare Worker + KV)
+- Primary endpoint: global/overseas-friendly domain
+- Backup endpoint: mainland-friendly domain
+- Both endpoints must point to the same Worker and the same KV binding `PAGE_VIEWS`
 
-### Step A: Create KV
-1. Open Cloudflare dashboard -> Workers & Pages -> KV.
-2. Create a namespace named `zyp-up-pageviews`.
+This gives better network reachability without creating two independent counters.
 
-### Step B: Create Worker
-1. Open Workers & Pages -> Create Worker.
-2. Replace code with `scripts/cloudflare-worker-pageviews.js`.
-3. In Worker Settings -> Variables -> KV namespace bindings:
-   - Variable name: `PAGE_VIEWS`
-  - KV namespace: select `zyp-up-pageviews`
-4. Deploy Worker.
-5. Use Worker URL: `https://misty-shadow-e33bzypup-pageviews-api.yunpengzhangup.workers.dev`
+## 2) Cloudflare Setup
 
-### Step C: Switch site config
+### Step A: Create KV namespace
+1. Cloudflare Dashboard -> Workers & Pages -> KV.
+2. Create namespace, for example `zyp-up-pageviews`.
+
+### Step B: Deploy Worker
+1. Create a Worker service.
+2. Use code from `scripts/cloudflare-worker-pageviews.js`.
+3. Bind KV in Worker Settings -> Variables:
+   - Variable: `PAGE_VIEWS`
+   - Namespace: `zyp-up-pageviews`
+4. Deploy.
+
+### Step C: Configure two entry domains (recommended)
+1. Keep the default workers.dev URL as primary, or use your own global domain.
+2. Add another custom domain for mainland-friendly routing.
+3. Route both domains to the same Worker service.
+
+## 3) Site Configuration
+
 In `_config.yml` set:
 
-```yml
-page_views:
-  provider: "worker"
-  namespace: "zypup_blog_pv"
-  counterapi_endpoint: "https://api.counterapi.dev/v1"
-  worker_endpoint: "https://misty-shadow-e33bzypup-pageviews-api.yunpengzhangup.workers.dev"
-```
+    page_views:
+      provider: "worker"
+      worker_endpoint: "https://your-primary-endpoint"
+      backup_worker_endpoint: "https://your-mainland-friendly-endpoint"
+      timeout_ms: 7000
 
-Then rebuild/redeploy the site.
+Notes:
 
-## 2) Counter Key Strategy
-All counters use post URL slugified key, e.g.:
-- `/posts/2026/03/qwen-vl/` -> `posts-2026-03-qwen-vl`
+- `backup_worker_endpoint` cannot be empty if you want mainland fallback.
+- Primary and backup must share the same underlying KV.
 
-## 3) Validation
-1. Open one post page, refresh once.
-2. Go to homepage and `/blog/`.
-3. Verify each item displays a number instead of spinner.
+## 4) Consistency Validation
 
-## 4) Optional Hardening
-- Add rate limit in Worker (IP + key + time window).
-- Add simple bot filtering by user-agent.
-- Add allow-list check using `referer` domain.
+Run:
+
+    ./scripts/check-pageviews-consistency.sh <primary_endpoint> <backup_endpoint> <key>
+
+Example key format:
+
+- Post URL `/posts/2026/03/qwen-vl/` -> key `posts-2026-03-qwen-vl`
+
+If both endpoints show the same `count` after an increment request, your setup is consistent.
+
+## 5) Runtime Behavior
+
+- On post detail pages, one browser session increments once per post.
+- List pages only read and display counts.
+- If both worker endpoints fail, UI displays `--` (unavailable), not `0`.

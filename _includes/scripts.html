@@ -5,7 +5,9 @@
 		provider: "{{ site.page_views.provider | default: 'counterapi' }}",
 		namespace: "{{ site.page_views.namespace | default: 'zypup_blog_pv' }}",
 		counterapi_endpoint: "{{ site.page_views.counterapi_endpoint | default: 'https://api.counterapi.dev/v1' }}",
-		worker_endpoint: "{{ site.page_views.worker_endpoint | default: '' }}"
+		worker_endpoint: "{{ site.page_views.worker_endpoint | default: '' }}",
+		backup_worker_endpoint: "{{ site.page_views.backup_worker_endpoint | default: '' }}",
+		timeout_ms: "{{ site.page_views.timeout_ms | default: 5000 }}"
 	};
 </script>
 <script src="{{ base_path }}/assets/js/page-views.js"></script>

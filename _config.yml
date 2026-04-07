@@ -162,10 +162,12 @@ analytics:
 
 # ==================== 页面浏览量统计 ====================
 page_views:
-  provider               : "worker"               # 可选："counterapi"（默认）或 "worker"（推荐长期稳定）
+  provider               : "worker"               # 推荐：worker（单一数据源）；counterapi 仅用于临时/开发
   namespace              : "zypup_blog_pv"        # counterapi 命名空间
   counterapi_endpoint    : "https://api.counterapi.dev/v1"
-  worker_endpoint        : "https://misty-shadow-e33bzypup-pageviews-api.yunpengzhangup.workers.dev"
+  worker_endpoint        : "https://misty-shadow-e33bzypup-pageviews-api.yunpengzhangup.workers.dev" # 主入口（海外/全局）
+  backup_worker_endpoint : ""                     # 备用入口（大陆友好），必须指向同一个 Worker+KV，避免数据分叉
+  timeout_ms             : 7000                    # 单次请求超时毫秒数，弱网建议 7000~10000
 
 
 # ==================== 文件读取设置 ====================
