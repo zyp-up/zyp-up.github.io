@@ -13,45 +13,57 @@ redirect_from:
     margin-bottom: 1em;
     font-size: 1.75em;
     font-weight: 700;
-    border-bottom: 2px solid #e8e8e8;
+    border-bottom: 2px solid var(--global-border-color);
     padding-bottom: 0.5em;
   }
 
   .blog-posts-container {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    --blog-item-height: 82px;
+    --blog-item-height: 92px;
+    --blog-item-gap: 0.62rem;
   }
 
   .blog-posts-scroll {
-    max-height: calc(var(--blog-item-height) * 3 + 2px);
+    max-height: calc(var(--blog-item-height) * 3 + var(--blog-item-gap) * 2 + 1.2em);
     overflow-y: auto;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
+    border: none;
+    border-radius: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: transparent;
+    scroll-snap-type: y proximity;
   }
 
   .blog-post-item {
-    height: var(--blog-item-height);
-    padding: 0.52em 1.1em;
-    border-bottom: 1px solid #e8e8e8;
-    transition: background-color 0.3s;
+    min-height: var(--blog-item-height);
+    height: auto;
+    padding: 0.68em 1em;
+    border: 1px solid var(--global-border-color);
+    border-radius: 12px;
+    background-color: color-mix(in srgb, var(--global-bg-color) 94%, #ffffff 6%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    scroll-snap-align: start;
   }
 
-  .blog-post-item:last-child {
-    border-bottom: none;
+  .blog-post-item + .blog-post-item {
+    margin-top: var(--blog-item-gap);
   }
 
   .blog-post-item:hover {
-    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--global-base-color) 40%, var(--global-border-color) 60%);
+    box-shadow:
+      0 12px 24px rgba(0, 0, 0, 0.11),
+      0 0 0 1px color-mix(in srgb, var(--global-base-color) 45%, transparent 55%),
+      0 0 20px rgba(221, 131, 97, 0.16);
   }
 
   .blog-post-date {
-    color: #666;
+    color: var(--global-text-color-light);
     font-size: 0.83em;
   }
 
@@ -65,32 +77,30 @@ redirect_from:
 
   .blog-post-views {
     font-size: 0.82em;
-    color: #888;
+    color: var(--global-text-color-light);
     white-space: nowrap;
   }
 
   .blog-post-item .blog-post-title {
     font-weight: 600;
-    font-size: 0.94em;
+    font-size: 0.95em;
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
-    line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.32;
   }
 
   .blog-post-item .blog-post-title a {
-    display: block;
-    color: #24292e;
+    display: -webkit-box;
+    color: var(--global-text-color);
     text-decoration: none;
-    white-space: nowrap;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    transition: color 0.2s ease;
   }
 
-  .blog-post-item .blog-post-title a:hover {
+  .blog-post-item:hover .blog-post-title a {
     color: var(--global-link-color);
     text-decoration: underline;
   }
@@ -108,20 +118,25 @@ redirect_from:
   }
 
   .education-card {
-    border: 1px solid #d9d6cf;
+    border: 1px solid var(--global-border-color);
     border-radius: 16px;
-    background-color: #fffdf9;
+    background-color: var(--global-bg-color);
+    background-color: color-mix(in srgb, var(--global-bg-color) 88%, #ffffff 12%);
     padding: var(--edu-top-space) 1.1em var(--edu-bottom-space);
     margin-bottom: 0.8em;
-    box-shadow: 0 2px 10px rgba(28, 36, 52, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 3px 14px rgba(33, 26, 17, 0.08);
+    transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
     display: block;
   }
 
   .education-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(28, 36, 52, 0.14);
-    border-color: #cbc5b8;
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 36px rgba(33, 26, 17, 0.15),
+      0 0 0 1px color-mix(in srgb, var(--global-base-color) 45%, transparent 55%),
+      0 0 26px rgba(221, 131, 97, 0.22);
+    border-color: var(--global-base-color);
+    border-color: color-mix(in srgb, var(--global-base-color) 45%, var(--global-border-color) 55%);
   }
 
   .education-card-header {
@@ -138,7 +153,7 @@ redirect_from:
     font-size: 1em;
     font-weight: 700;
     line-height: 1.2;
-    color: #1a2233;
+    color: var(--global-text-color);
   }
 
   .education-school a {
@@ -148,7 +163,7 @@ redirect_from:
 
   .education-school a:hover,
   .education-school a:focus-visible {
-    color: #1f8db0;
+    color: var(--global-link-color);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -156,18 +171,18 @@ redirect_from:
   .education-meta {
     font-size: 1em;
     line-height: 1.2;
-    color: #6b7384;
+    color: var(--global-text-color-light);
   }
 
   .education-divider {
-    color: #8a92a3;
+    color: var(--global-text-color-light);
     font-size: 0.95em;
   }
 
   .education-detail {
     margin: 0.2em 0;
     font-size: 1em;
-    color: #6b7384;
+    color: var(--global-text-color-light);
   }
 
   .education-second-line {
@@ -179,7 +194,7 @@ redirect_from:
     flex-wrap: wrap;
     font-size: 1em;
     line-height: 1.2;
-    color: #6b7384;
+    color: var(--global-text-color-light);
     text-align: left;
   }
 
@@ -234,7 +249,7 @@ redirect_from:
     --timeline-tail-gap: 0.3em;
     --timeline-arrow-half-width: 0.22em;
     --timeline-arrow-height: 0.68em;
-    --timeline-arrow-color: #7a8396;
+    --timeline-arrow-color: #8a8377;
     list-style: none;
     margin: 0;
     padding: 0 0 0 var(--timeline-padding-left);
@@ -249,7 +264,8 @@ redirect_from:
     top: calc(var(--timeline-first-dot-y) - var(--timeline-head-gap));
     bottom: var(--timeline-tail-gap);
     width: 2px;
-    background: #b7beca;
+    background: var(--global-text-color-light);
+    background: color-mix(in srgb, var(--global-text-color-light) 58%, var(--global-border-color) 42%);
   }
 
   .internships-timeline::after {
@@ -283,16 +299,51 @@ redirect_from:
     width: var(--timeline-dot-size);
     height: var(--timeline-dot-size);
     border-radius: 50%;
-    background: #5e6673;
+    background: var(--global-base-color);
+  }
+
+  html[data-theme="dark"] .blog-post-item:hover {
+    box-shadow:
+      0 14px 28px rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(221, 131, 97, 0.36),
+      0 0 24px rgba(221, 131, 97, 0.2);
+  }
+
+  html[data-theme="dark"] .blog-post-item {
+    background-color: #201d18;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32);
+  }
+
+  html[data-theme="dark"] .education-card {
+    background-color: #1f1b16;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  html[data-theme="dark"] .education-card:hover {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.52),
+      0 0 0 1px rgba(221, 131, 97, 0.42),
+      0 0 30px rgba(221, 131, 97, 0.24);
+  }
+
+  html[data-theme="dark"] .internships-timeline {
+    --timeline-arrow-color: #b4aa9c;
   }
 
   @media (max-width: 760px) {
     .blog-posts-container {
-      --blog-item-height: 90px;
+      --blog-item-height: 96px;
+      --blog-item-gap: 0.5rem;
+    }
+
+    .blog-posts-scroll {
+      border-radius: 0;
+      padding: 0;
     }
 
     .blog-post-item {
-      padding: 0.56em 0.95em;
+      padding: 0.62em 0.86em;
+      border-radius: 11px;
     }
 
     .blog-post-item .blog-post-title {
@@ -350,7 +401,7 @@ redirect_from:
       --timeline-tail-gap: 0.2em;
       --timeline-arrow-half-width: 0.2em;
       --timeline-arrow-height: 0.58em;
-      --timeline-arrow-color: #7a8396;
+      --timeline-arrow-color: #8a8377;
     }
 
     .internship-item + .internship-item {
@@ -360,11 +411,11 @@ redirect_from:
   }
 
   .empty-placeholder {
-    color: #999;
+    color: var(--global-text-color-light);
     font-style: italic;
     padding: 2em;
     text-align: center;
-    background-color: #fafafa;
+    background-color: var(--global-thead-color);
     border-radius: 4px;
   }
 </style>
@@ -390,7 +441,7 @@ redirect_from:
       <div class="blog-post-item">
         <div class="blog-post-meta">
           <span class="blog-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-          <span class="blog-post-views"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:#ccc;"></i></span> views</span>
+          <span class="blog-post-views"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:var(--global-text-color-light);"></i></span> views</span>
         </div>
         <h3 class="blog-post-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -402,7 +453,7 @@ redirect_from:
 
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1em;">
   <p style="margin: 0;">📖 <a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
-  <div style="font-size: 0.85em; color: #888; text-align: right; line-height: 1.4;">
+  <div style="font-size: 0.85em; color: var(--global-text-color-light); text-align: right; line-height: 1.4;">
     <em>正在奋笔疾书中，争取每月更新 💪</em><br>
     <em>Writing hard and aiming for monthly updates.</em>
   </div>
@@ -496,7 +547,7 @@ redirect_from:
     </li>
     <li class="internship-item">
       <div class="internship-entry">
-        <img class="org-logo-block" src="{{ '/images/homepage_logo/真景科技.jpeg' | relative_url }}" alt="Truesight logo">
+        <img class="org-logo-block" src="{{ '/images/homepage_logo/真景科技.jpg' | relative_url }}" alt="Truesight logo">
         <div class="internship-text">
           <strong>2025.07 - 2025.10</strong> &nbsp;|&nbsp; <a href="https://www.truesightai.com/" target="_blank"><strong>Truesight</strong></a> &nbsp;&ndash;&nbsp; AI Research<br>
           <em>Computer Vision R&D Intern</em> &nbsp;&bull;&nbsp; Xiamen, Fujian, China
@@ -523,7 +574,7 @@ redirect_from:
 
 <div class="section-content">
   <!-- Add your portfolio projects here -->
-  <p style="color: #999; font-style: italic;">To be added...</p>
+  <p style="color: var(--global-text-color-light); font-style: italic;">To be added...</p>
 </div>
 
 <p>🔗 <a href="{{ '/portfolio/' | relative_url }}">View full portfolio →</a></p>
