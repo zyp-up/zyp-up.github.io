@@ -12,6 +12,57 @@
 </script>
 <script src="{{ base_path }}/assets/js/page-views.js"></script>
 
+<script>
+	(function () {
+		// Improve perceived performance for content images without changing markdown files.
+		var selectors = [
+			'.page__content img',
+			'.archive img',
+			'.blog-posts-scroll img',
+			'.education-card img',
+			'.internship-entry img'
+		];
+
+		var images = document.querySelectorAll(selectors.join(','));
+
+		images.forEach(function (img, index) {
+			// Keep avatar/logo-like images eager only if explicitly marked high priority.
+			var isHighPriority = img.getAttribute('fetchpriority') === 'high';
+
+			if (!isHighPriority && !img.hasAttribute('loading')) {
+				img.setAttribute('loading', index === 0 ? 'eager' : 'lazy');
+			}
+
+			if (!img.hasAttribute('decoding')) {
+				img.setAttribute('decoding', 'async');
+			}
+
+			if (!isHighPriority && !img.hasAttribute('fetchpriority')) {
+				img.setAttribute('fetchpriority', index === 0 ? 'high' : 'low');
+			}
+
+			// If dimensions are missing, set them after load to reduce repeated relayout.
+			if ((!img.hasAttribute('width') || !img.hasAttribute('height')) && img.complete) {
+				if (!img.hasAttribute('width') && img.naturalWidth) {
+					img.setAttribute('width', String(img.naturalWidth));
+				}
+				if (!img.hasAttribute('height') && img.naturalHeight) {
+					img.setAttribute('height', String(img.naturalHeight));
+				}
+			} else if (!img.complete) {
+				img.addEventListener('load', function () {
+					if (!img.hasAttribute('width') && img.naturalWidth) {
+						img.setAttribute('width', String(img.naturalWidth));
+					}
+					if (!img.hasAttribute('height') && img.naturalHeight) {
+						img.setAttribute('height', String(img.naturalHeight));
+					}
+				}, { once: true });
+			}
+		});
+	})();
+</script>
+
 <!-- MathJax 延迟加载（只在有数学公式时加载） -->
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
