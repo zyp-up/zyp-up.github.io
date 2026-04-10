@@ -349,6 +349,8 @@ redirect_from:
       --timeline-head-gap: 1.14em;
       --timeline-tail-gap: 0.2em;
       --timeline-arrow-half-width: 0.2em;
+      --timeline-arrow-height: 0.58em;
+      --timeline-arrow-color: #7a8396;
     }
 
     .internship-item + .internship-item {
