@@ -20,21 +20,26 @@ redirect_from:
   .blog-posts-container {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+    --blog-item-height: 82px;
   }
 
   .blog-posts-scroll {
-    max-height: 400px;
+    max-height: calc(var(--blog-item-height) * 3 + 2px);
     overflow-y: auto;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
-    padding: 1em 0;
+    padding: 0;
     background-color: #fafafa;
   }
 
   .blog-post-item {
-    padding: 1em 1.5em;
+    height: var(--blog-item-height);
+    padding: 0.52em 1.1em;
     border-bottom: 1px solid #e8e8e8;
     transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .blog-post-item:last-child {
@@ -47,22 +52,46 @@ redirect_from:
 
   .blog-post-date {
     color: #666;
-    font-size: 0.85em;
+    font-size: 0.83em;
   }
 
-  .blog-post-title {
+  .blog-post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.12em;
+    gap: 0.8em;
+  }
+
+  .blog-post-views {
+    font-size: 0.82em;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .blog-post-item .blog-post-title {
     font-weight: 600;
-    font-size: 1em;
-    margin: 0;
+    font-size: 0.94em;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .blog-post-title a {
+  .blog-post-item .blog-post-title a {
+    display: block;
     color: #24292e;
     text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .blog-post-title a:hover {
-    color: #0366d6;
+  .blog-post-item .blog-post-title a:hover {
+    color: var(--global-link-color);
     text-decoration: underline;
   }
 
@@ -157,6 +186,18 @@ redirect_from:
   }
 
   @media (max-width: 760px) {
+    .blog-posts-container {
+      --blog-item-height: 90px;
+    }
+
+    .blog-post-item {
+      padding: 0.56em 0.95em;
+    }
+
+    .blog-post-item .blog-post-title {
+      font-size: 0.9em;
+    }
+
     .education-section {
       --edu-top-space: 1.3rem;
       --edu-row-gap: 1rem;
@@ -214,9 +255,9 @@ redirect_from:
     {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
     {% for post in sorted_posts limit: 20 %}
       <div class="blog-post-item">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3em;">
+        <div class="blog-post-meta">
           <span class="blog-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-          <span class="blog-post-views" style="font-size: 0.85em; color: #888;"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:#ccc;"></i></span> views</span>
+          <span class="blog-post-views"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:#ccc;"></i></span> views</span>
         </div>
         <h3 class="blog-post-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
