@@ -115,9 +115,7 @@ redirect_from:
     margin-bottom: 0.8em;
     box-shadow: 0 2px 10px rgba(28, 36, 52, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    display: grid;
-    grid-template-rows: auto auto;
-    row-gap: var(--edu-row-gap);
+    display: block;
   }
 
   .education-card:hover {
@@ -185,6 +183,109 @@ redirect_from:
     text-align: left;
   }
 
+  .education-card-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9em;
+  }
+
+  .education-logo-block {
+    width: 3.2em;
+    height: 3.2em;
+    object-fit: contain;
+    flex: 0 0 3.2em;
+    margin-top: 0.05em;
+  }
+
+  .education-card-content {
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: var(--edu-row-gap);
+    flex: 1;
+    min-width: 0;
+  }
+
+  .internship-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.72em;
+  }
+
+  .org-logo-block {
+    width: 3.2em;
+    height: 3.2em;
+    object-fit: contain;
+    flex: 0 0 3.2em;
+    margin-top: 0.05em;
+    border-radius: 3px;
+  }
+
+  .internship-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .internships-timeline {
+    --timeline-padding-left: 1.7em;
+    --timeline-axis-x: 0.6em;
+    --timeline-dot-size: 0.58em;
+    --timeline-first-dot-y: 1.35em;
+    --timeline-head-gap: 1.32em;
+    --timeline-tail-gap: 0.3em;
+    --timeline-arrow-half-width: 0.22em;
+    --timeline-arrow-height: 0.68em;
+    --timeline-arrow-color: #7a8396;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 var(--timeline-padding-left);
+    position: relative;
+  }
+
+  .internships-timeline::before {
+    content: "";
+    position: absolute;
+    left: var(--timeline-axis-x);
+    transform: translateX(-50%);
+    top: calc(var(--timeline-first-dot-y) - var(--timeline-head-gap));
+    bottom: var(--timeline-tail-gap);
+    width: 2px;
+    background: #b7beca;
+  }
+
+  .internships-timeline::after {
+    content: "";
+    position: absolute;
+    left: var(--timeline-axis-x);
+    transform: translateX(-50%);
+    top: calc(var(--timeline-first-dot-y) - var(--timeline-head-gap) - var(--timeline-arrow-height));
+    width: 0;
+    height: 0;
+    border-left: var(--timeline-arrow-half-width) solid transparent;
+    border-right: var(--timeline-arrow-half-width) solid transparent;
+    border-bottom: var(--timeline-arrow-height) solid var(--timeline-arrow-color);
+  }
+
+  .internship-item {
+    position: relative;
+    margin: 0;
+  }
+
+  .internship-item + .internship-item {
+    margin-top: 1.6em;
+  }
+
+  .internship-item::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--timeline-axis-x) - var(--timeline-padding-left));
+    transform: translate(-50%, -50%);
+    top: var(--timeline-first-dot-y);
+    width: var(--timeline-dot-size);
+    height: var(--timeline-dot-size);
+    border-radius: 50%;
+    background: #5e6673;
+  }
+
   @media (max-width: 760px) {
     .blog-posts-container {
       --blog-item-height: 90px;
@@ -207,7 +308,22 @@ redirect_from:
     .education-card {
       border-radius: 12px;
       padding: var(--edu-top-space) 0.9em var(--edu-bottom-space);
-      row-gap: var(--edu-row-gap);
+    }
+
+    .education-logo-block {
+      width: 2.8em;
+      height: 2.8em;
+      flex-basis: 2.8em;
+    }
+
+    .org-logo-block {
+      width: 2.8em;
+      height: 2.8em;
+      flex-basis: 2.8em;
+    }
+
+    .internship-entry {
+      gap: 0.62em;
     }
 
     .education-school {
@@ -224,6 +340,21 @@ redirect_from:
       justify-content: flex-start;
       text-align: left;
     }
+
+    .internships-timeline {
+      --timeline-padding-left: 1.5em;
+      --timeline-axis-x: 0.54em;
+      --timeline-dot-size: 0.52em;
+      --timeline-first-dot-y: 1.2em;
+      --timeline-head-gap: 1.14em;
+      --timeline-tail-gap: 0.2em;
+      --timeline-arrow-half-width: 0.2em;
+    }
+
+    .internship-item + .internship-item {
+      margin-top: 1.45em;
+    }
+
   }
 
   .empty-placeholder {
@@ -291,27 +422,37 @@ redirect_from:
 
 <div class="education-section">
   <div class="education-card">
-    <div class="education-card-header">
-      <span class="education-school"><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign (UIUC)</a></span>
-      <span class="education-meta">Urbana-Champaign · USA | 2026 Fall</span>
+    <div class="education-card-main">
+      <img class="education-logo-block" src="{{ '/images/homepage_logo/UIUC.jpeg' | relative_url }}" alt="UIUC logo">
+      <div class="education-card-content">
+        <div class="education-card-header">
+          <span class="education-school"><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign (UIUC)</a></span>
+          <span class="education-meta">Urbana-Champaign · USA | 2026 Fall</span>
+        </div>
+        <p class="education-second-line">
+          <span>Master of Engineering</span>
+          <span class="education-divider">|</span>
+          <span>Major in Electrical and Computer Engineering</span>
+        </p>
+      </div>
     </div>
-    <p class="education-second-line">
-      <span>Master of Engineering</span>
-      <span class="education-divider">|</span>
-      <span>Major in Electrical and Computer Engineering</span>
-    </p>
   </div>
 
   <div class="education-card">
-    <div class="education-card-header">
-      <span class="education-school"><a href="https://english.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">China Jiliang University (CJLU)</a></span>
-      <span class="education-meta">Hangzhou · China | Sept 2022 - Jun 2026</span>
+    <div class="education-card-main">
+      <img class="education-logo-block" src="{{ '/images/homepage_logo/CJLU.jpeg' | relative_url }}" alt="CJLU logo">
+      <div class="education-card-content">
+        <div class="education-card-header">
+          <span class="education-school"><a href="https://english.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">China Jiliang University (CJLU)</a></span>
+          <span class="education-meta">Hangzhou · China | Sept 2022 - Jun 2026</span>
+        </div>
+        <p class="education-second-line">
+          <span>Bachelor of Engineering (Honors)</span>
+          <span class="education-divider">|</span>
+          <span>Major in Optoelectronic Information Science and Engineering</span>
+        </p>
+      </div>
     </div>
-    <p class="education-second-line">
-      <span>Bachelor of Engineering (Honors)</span>
-      <span class="education-divider">|</span>
-      <span>Major in Optoelectronic Information Science and Engineering</span>
-    </p>
   </div>
 </div>
 
@@ -332,20 +473,33 @@ redirect_from:
 ## 💻 Internships {#internships}
 
 <div class="section-content">
-  <ul>
-    <li>
-      <strong>2026.02 - 2026.07</strong> &nbsp;|&nbsp; <a href="https://www.bytedance.com/zh/" target="_blank"><strong>ByteDance</strong></a> &nbsp;&ndash;&nbsp; Data-AML<br>
-      <em>VLM/LLM Application Algorithm Intern</em> &nbsp;&bull;&nbsp; Shenzhen, Guangdong, China
+  <ul class="internships-timeline">
+    <li class="internship-item">
+      <div class="internship-entry">
+        <img class="org-logo-block" src="{{ '/images/homepage_logo/bytedance_logo.jpeg' | relative_url }}" alt="ByteDance logo">
+        <div class="internship-text">
+          <strong>2026.02 - 2026.07</strong> &nbsp;|&nbsp; <a href="https://www.bytedance.com/zh/" target="_blank"><strong>ByteDance</strong></a> &nbsp;&ndash;&nbsp; Data-AML<br>
+          <em>VLM/LLM Application Algorithm Intern</em> &nbsp;&bull;&nbsp; Shenzhen, Guangdong, China
+        </div>
+      </div>
     </li>
-    <br>
-    <li>
-      <strong>2025.10 - 2026.01</strong> &nbsp;|&nbsp; <a href="https://www.xiaopeng.com/" target="_blank"><strong>XPeng Motors</strong></a> &nbsp;&ndash;&nbsp; Intelligent Cockpit Center<br>
-      <em>VLM Foundation Model Algorithm Intern</em> &nbsp;&bull;&nbsp; Beijing, China
+    <li class="internship-item">
+      <div class="internship-entry">
+        <img class="org-logo-block" src="{{ '/images/homepage_logo/xpengmotorsglobal_logo.jpeg' | relative_url }}" alt="XPeng logo">
+        <div class="internship-text">
+          <strong>2025.10 - 2026.01</strong> &nbsp;|&nbsp; <a href="https://www.xiaopeng.com/" target="_blank"><strong>XPeng Motors</strong></a> &nbsp;&ndash;&nbsp; Intelligent Cockpit Center<br>
+          <em>VLM Foundation Model Algorithm Intern</em> &nbsp;&bull;&nbsp; Beijing, China
+        </div>
+      </div>
     </li>
-    <br>
-    <li>
-      <strong>2025.07 - 2025.10</strong> &nbsp;|&nbsp; <a href="https://www.truesightai.com/" target="_blank"><strong>Truesight</strong></a> &nbsp;&ndash;&nbsp; AI Research<br>
-      <em>Computer Vision R&D Intern</em> &nbsp;&bull;&nbsp; Xiamen, Fujian, China
+    <li class="internship-item">
+      <div class="internship-entry">
+        <img class="org-logo-block" src="{{ '/images/homepage_logo/真景科技.jpeg' | relative_url }}" alt="Truesight logo">
+        <div class="internship-text">
+          <strong>2025.07 - 2025.10</strong> &nbsp;|&nbsp; <a href="https://www.truesightai.com/" target="_blank"><strong>Truesight</strong></a> &nbsp;&ndash;&nbsp; AI Research<br>
+          <em>Computer Vision R&D Intern</em> &nbsp;&bull;&nbsp; Xiamen, Fujian, China
+        </div>
+      </div>
     </li>
   </ul>
 </div>
