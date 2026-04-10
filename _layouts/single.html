@@ -19,6 +19,19 @@ layout: default
     {% include sidebar.html %}
   {% endunless %}
 
+  {% if page.collection == 'posts' %}
+    <details class="post-toc-drawer">
+      <summary class="post-toc-drawer__summary">
+        <i class="fa fa-list" aria-hidden="true"></i>
+        <span>Table of Contents</span>
+      </summary>
+      <nav class="toc" aria-label="Table of contents">
+        <ul class="toc__menu js-post-toc-menu"></ul>
+      </nav>
+      <div class="post-toc-resizer" role="separator" aria-orientation="vertical" aria-label="Resize table of contents panel"></div>
+    </details>
+  {% endif %}
+
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -107,5 +120,154 @@ layout: default
         {% endfor %}
       </div>
     </div>
+  {% endif %}
+
+  {% if page.collection == 'posts' %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var tocRoot = document.querySelector('.js-post-toc-menu');
+        var tocDrawer = document.querySelector('.post-toc-drawer');
+        var content = document.querySelector('.page__content');
+        if (!tocRoot || !tocDrawer || !content) {
+          return;
+        }
+
+        var headingNodes = [];
+        var pageTitle = document.querySelector('.page__title');
+        if (pageTitle) {
+          headingNodes.push(pageTitle);
+        }
+
+        var contentHeadings = content.querySelectorAll('h1, h2, h3');
+        contentHeadings.forEach(function (node) {
+          headingNodes.push(node);
+        });
+
+        if (!headingNodes.length) {
+          tocDrawer.style.display = 'none';
+          return;
+        }
+
+        var currentH1Item = null;
+        var currentH2Item = null;
+
+        headingNodes.forEach(function (heading, index) {
+          if (!heading.id) {
+            heading.id = 'toc-heading-' + (index + 1);
+          }
+
+          var a = document.createElement('a');
+          var hashLink = '#' + heading.id;
+          a.href = hashLink;
+          a.textContent = heading.textContent.trim();
+
+          var level = heading.classList.contains('page__title') ? 'h1' : heading.tagName.toLowerCase();
+
+          if (level === 'h1') {
+            var li = document.createElement('li');
+            li.appendChild(a);
+            tocRoot.appendChild(li);
+            currentH1Item = li;
+            currentH2Item = null;
+          } else if (level === 'h2') {
+            var parentForH2 = currentH1Item || tocRoot;
+            var h2List = parentForH2.querySelector(':scope > ul');
+            if (!h2List) {
+              h2List = document.createElement('ul');
+              parentForH2.appendChild(h2List);
+            }
+
+            var h2Item = document.createElement('li');
+            h2Item.appendChild(a);
+            h2List.appendChild(h2Item);
+            currentH2Item = h2Item;
+          } else {
+            var parentForH3 = currentH2Item || currentH1Item;
+            if (!parentForH3) {
+              return;
+            }
+
+            var h3List = parentForH3.querySelector(':scope > ul');
+            if (!h3List) {
+              h3List = document.createElement('ul');
+              parentForH3.appendChild(h3List);
+            }
+
+            var h3Item = document.createElement('li');
+            h3Item.appendChild(a);
+            h3List.appendChild(h3Item);
+          }
+        });
+
+        var mainContainer = document.querySelector('#main.no-sidebar');
+        var resizer = document.querySelector('.post-toc-resizer');
+        if (!mainContainer || !resizer || !window.PointerEvent) {
+          return;
+        }
+
+        var WIDTH_KEY = 'postTocPanelWidth';
+        var minWidth = 220;
+        var maxWidth = Math.min(520, Math.floor(window.innerWidth * 0.45));
+        var isResizing = false;
+
+        function clampWidth(width) {
+          return Math.max(minWidth, Math.min(maxWidth, Math.round(width)));
+        }
+
+        function setPanelWidth(width) {
+          var safeWidth = clampWidth(width);
+          mainContainer.style.setProperty('--toc-panel-width', safeWidth + 'px');
+          return safeWidth;
+        }
+
+        var savedWidth = parseInt(localStorage.getItem(WIDTH_KEY), 10);
+        if (!isNaN(savedWidth)) {
+          setPanelWidth(savedWidth);
+        }
+
+        window.addEventListener('resize', function () {
+          maxWidth = Math.min(520, Math.floor(window.innerWidth * 0.45));
+          var current = parseInt(getComputedStyle(mainContainer).getPropertyValue('--toc-panel-width'), 10);
+          if (!isNaN(current)) {
+            setPanelWidth(current);
+          }
+        });
+
+        resizer.addEventListener('pointerdown', function (event) {
+          if (!tocDrawer.hasAttribute('open')) {
+            return;
+          }
+
+          isResizing = true;
+          document.body.classList.add('toc-resizing');
+          resizer.setPointerCapture(event.pointerId);
+          event.preventDefault();
+        });
+
+        resizer.addEventListener('pointermove', function (event) {
+          if (!isResizing) {
+            return;
+          }
+
+          setPanelWidth(event.clientX);
+        });
+
+        function stopResize() {
+          if (!isResizing) {
+            return;
+          }
+
+          isResizing = false;
+          document.body.classList.remove('toc-resizing');
+          var currentWidth = parseInt(getComputedStyle(mainContainer).getPropertyValue('--toc-panel-width'), 10);
+          if (!isNaN(currentWidth)) {
+            localStorage.setItem(WIDTH_KEY, String(currentWidth));
+          }
+        }
+
+        resizer.addEventListener('pointerup', stopResize);
+        resizer.addEventListener('pointercancel', stopResize);
+      });
+    </script>
   {% endif %}
 </div>
