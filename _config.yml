@@ -258,7 +258,7 @@ defaults:
       type: posts
     values:
       layout: single                              # 使用 single 布局
-      author_profile: true                        # 显示左侧作者信息栏
+      author_profile: false                       # 博文详情页隐藏左侧作者信息栏，提升阅读区域
       read_time: true                             # 显示阅读时间
       comments: true                              # 允许评论
       share: true                                 # 显示分享按钮
