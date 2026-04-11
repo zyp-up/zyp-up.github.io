@@ -19,7 +19,7 @@ repository               : "zyp-up/zyp-up.github.io" # GitHub 仓库名，格式
 # 如需更深度自定义布局，可编辑 /_includes/author-profile.html
 author:
   # ----- 基本个人信息 -----
-  avatar           : "zyp_4.png"              # 头像图片文件名，需放在 /images/ 目录下
+  avatar           : "zyp_4.PNG"              # 头像图片文件名，需放在 /images/ 目录下
   name             : "Yunpeng Zhang"             # 侧边栏显示的姓名（粗体大字）
   pronouns         :                             # 人称代词，如 "he/him"、"she/her"，不需要可留空
   bio              : "Stay foolish. Stay hungry." # 姓名下方的一句话简介，如 "博士研究生"、"助理教授"
