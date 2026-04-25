@@ -187,15 +187,28 @@ redirect_from:
 
   .education-second-line {
     margin: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.55em;
-    flex-wrap: wrap;
+    display: block;
     font-size: 1em;
     line-height: 1.2;
     color: var(--global-text-color-light);
     text-align: left;
+    text-wrap: balance;
+  }
+
+  .education-second-line .education-divider {
+    margin: 0 0.15em;
+  }
+
+  .education-second-line a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .education-second-line a:hover,
+  .education-second-line a:focus-visible {
+    color: var(--global-link-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .education-card-main {
@@ -483,6 +496,8 @@ redirect_from:
           <span class="education-meta">Urbana-Champaign · USA | 2026 Fall</span>
         </div>
         <p class="education-second-line">
+          <a href="https://grainger.illinois.edu/" target="_blank" rel="noopener noreferrer">The Grainger College of Engineering</a>
+          <span class="education-divider">|</span>
           <span>Master of Engineering</span>
           <span class="education-divider">|</span>
           <span>Major in Electrical and Computer Engineering</span>
@@ -500,6 +515,8 @@ redirect_from:
           <span class="education-meta">Hangzhou · China | Sept 2022 - Jun 2026</span>
         </div>
         <p class="education-second-line">
+          <a href="https://lxxy.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">Liangxin College</a>
+          <span class="education-divider">|</span>
           <span>Bachelor of Engineering (Honors)</span>
           <span class="education-divider">|</span>
           <span>Major in Optoelectronic Information Science and Engineering</span>
