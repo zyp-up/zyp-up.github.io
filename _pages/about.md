@@ -187,16 +187,15 @@ redirect_from:
 
   .education-second-line {
     margin: 0;
-    display: block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.55em;
+    flex-wrap: wrap;
     font-size: 1em;
     line-height: 1.2;
     color: var(--global-text-color-light);
     text-align: left;
-    text-wrap: balance;
-  }
-
-  .education-second-line .education-divider {
-    margin: 0 0.15em;
   }
 
   .education-second-line a {
@@ -498,7 +497,7 @@ redirect_from:
         <p class="education-second-line">
           <a href="https://grainger.illinois.edu/" target="_blank" rel="noopener noreferrer">The Grainger College of Engineering</a>
           <span class="education-divider">|</span>
-          <span>Master of Engineering</span>
+          <span>M.Eng.</span>
           <span class="education-divider">|</span>
           <span>Major in Electrical and Computer Engineering</span>
         </p>
@@ -517,7 +516,7 @@ redirect_from:
         <p class="education-second-line">
           <a href="https://lxxy.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">Liangxin College</a>
           <span class="education-divider">|</span>
-          <span>Bachelor of Engineering (Honors)</span>
+          <span>B.Eng. (Honors)</span>
           <span class="education-divider">|</span>
           <span>Major in Optoelectronic Information Science and Engineering</span>
         </p>
