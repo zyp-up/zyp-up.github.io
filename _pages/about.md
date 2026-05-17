@@ -581,7 +581,6 @@ redirect_from:
   <p style="font-size: 1.1em; line-height: 1.8;">
     🏋️‍♂️ <strong>Fitness</strong> &nbsp;&bull;&nbsp; 🏀 <strong>Basketball</strong> &nbsp;&bull;&nbsp; 🏊‍♂️ <strong>Swimming</strong> &nbsp;&bull;&nbsp; 🏄‍♂️ <strong>Surfing</strong> &nbsp;&bull;&nbsp; ⛳ <strong>Golf</strong> &nbsp;&bull;&nbsp; 🎾 <strong>Tennis</strong>
   </p>
-  <p><em>...and I'm always open to trying any new sports!</em></p>
 </div>
 
 ---
