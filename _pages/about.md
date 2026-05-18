@@ -110,6 +110,123 @@ redirect_from:
     line-height: 1.6;
   }
 
+  .portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5em 0;
+  }
+
+  .portfolio-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 42%) minmax(0, 1fr);
+    overflow: hidden;
+    border: 1px solid var(--global-border-color);
+    border-radius: 12px;
+    background-color: color-mix(in srgb, var(--global-bg-color) 92%, #ffffff 8%);
+    box-shadow: 0 3px 14px rgba(33, 26, 17, 0.08);
+    transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--global-base-color) 45%, var(--global-border-color) 55%);
+    box-shadow:
+      0 18px 36px rgba(33, 26, 17, 0.15),
+      0 0 0 1px color-mix(in srgb, var(--global-base-color) 45%, transparent 55%),
+      0 0 26px rgba(221, 131, 97, 0.2);
+  }
+
+  .portfolio-card:hover .portfolio-title-link,
+  .portfolio-card:focus-within .portfolio-title-link {
+    color: var(--global-link-color);
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+
+  .portfolio-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    max-height: 340px;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    box-sizing: border-box;
+    padding: 0.65em;
+    background-color: transparent;
+    border-right: 1px solid var(--global-border-color);
+  }
+
+  .portfolio-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.15em 1.25em;
+  }
+
+  .portfolio-card-title {
+    margin: 0 0 0.55em !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 1.05em;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .portfolio-title-link {
+    display: inline;
+    color: var(--global-text-color);
+    text-decoration: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .portfolio-title-link:hover,
+  .portfolio-title-link:focus-visible {
+    color: var(--global-link-color);
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .github-mark {
+    width: 1.05em;
+    height: 1.05em;
+    fill: currentColor;
+    margin-left: 0.32em;
+    vertical-align: -0.12em;
+  }
+
+  .portfolio-card-text {
+    margin: 0 0 0.85em;
+    color: var(--global-text-color-light);
+    font-size: 0.92em;
+    line-height: 1.55;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.38em;
+    margin-bottom: 1em;
+  }
+
+  .portfolio-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--global-border-color) 72%, var(--global-base-color) 28%);
+    border-radius: 999px;
+    padding: 0.16em 0.58em;
+    color: var(--global-text-color-light);
+    background-color: color-mix(in srgb, var(--global-bg-color) 86%, var(--global-base-color) 14%);
+    font-size: 0.75em;
+    line-height: 1.45;
+  }
+
   .education-section {
     margin: 1em 0;
     --edu-top-space: 1.5rem;
@@ -338,6 +455,18 @@ redirect_from:
       0 0 30px rgba(221, 131, 97, 0.24);
   }
 
+  html[data-theme="dark"] .portfolio-card {
+    background-color: #1f1b16;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  html[data-theme="dark"] .portfolio-card:hover {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.52),
+      0 0 0 1px rgba(221, 131, 97, 0.42),
+      0 0 30px rgba(221, 131, 97, 0.24);
+  }
+
   html[data-theme="dark"] .internships-timeline {
     --timeline-arrow-color: #b4aa9c;
   }
@@ -360,6 +489,26 @@ redirect_from:
 
     .blog-post-item .blog-post-title {
       font-size: 0.9em;
+    }
+
+    .portfolio-grid {
+      gap: 0.85rem;
+    }
+
+    .portfolio-card {
+      grid-template-columns: 1fr;
+      border-radius: 11px;
+    }
+
+    .portfolio-cover {
+      min-height: 210px;
+      max-height: none;
+      border-right: 0;
+      border-bottom: 1px solid var(--global-border-color);
+    }
+
+    .portfolio-card-body {
+      padding: 0.9em;
     }
 
     .education-section {
@@ -441,6 +590,12 @@ redirect_from:
 
   <p>🤝 Open to discussion and collaboration on AI-related projects &mdash; feel free to reach out!</p>
 </div>
+
+---
+
+## 📄 CV {#cv}
+
+<p>📥 <a href="{{ '/cv/' | relative_url }}">View full CV →</a></p>
 
 ---
 
@@ -573,6 +728,54 @@ redirect_from:
   </ul>
 </div>
 
+## 🎨 Portfolio {#portfolio}
+
+<div class="section-content">
+  <div class="portfolio-grid">
+    <article class="portfolio-card">
+      <img class="portfolio-cover" src="{{ '/images/portfolio/3dmm-flux-overview.png' | relative_url }}" alt="3DMM-FLUX method overview">
+      <div class="portfolio-card-body">
+        <h3 class="portfolio-card-title">
+          <a class="portfolio-title-link" href="https://github.com/zyp-up/3DMM-FLUX-Instruction-Face-Editing" target="_blank" rel="noopener noreferrer">
+            <span>3DMM-FLUX: Instruction-Guided Facial Expression Editing</span>
+            <svg class="github-mark" viewBox="0 0 16 16" role="img" aria-label="GitHub">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+            </svg>
+          </a>
+        </h3>
+        <p class="portfolio-card-text">An instruction-driven face editing framework that combines interpretable 3DMM expression control with FLUX diffusion generation for identity-preserving facial expression editing.</p>
+        <div class="portfolio-tags" aria-label="Project tags">
+          <span class="portfolio-tag">AIGC</span>
+          <span class="portfolio-tag">FLUX</span>
+          <span class="portfolio-tag">3DMM</span>
+          <span class="portfolio-tag">Face Editing</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="portfolio-card">
+      <img class="portfolio-cover" src="{{ '/images/portfolio/facepairemoji-pipeline.png' | relative_url }}" alt="FacePairEmoji data pipeline">
+      <div class="portfolio-card-body">
+        <h3 class="portfolio-card-title">
+          <a class="portfolio-title-link" href="https://github.com/zyp-up/FacePairEmoji" target="_blank" rel="noopener noreferrer">
+            <span>FacePairEmoji</span>
+            <svg class="github-mark" viewBox="0 0 16 16" role="img" aria-label="GitHub">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+            </svg>
+          </a>
+        </h3>
+        <p class="portfolio-card-text">A multi-resolution paired facial expression dataset for FLUX fine-tuning, built around same-person expression pairs and resolution buckets from 256px to 2048px.</p>
+        <div class="portfolio-tags" aria-label="Project tags">
+          <span class="portfolio-tag">Dataset</span>
+          <span class="portfolio-tag">FLUX Fine-Tuning</span>
+          <span class="portfolio-tag">Expression Pairs</span>
+          <span class="portfolio-tag">Multi-Resolution</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
 ---
 
 ## 🎯 Hobbies {#hobbies}
@@ -582,20 +785,3 @@ redirect_from:
     🏋️‍♂️ <strong>Fitness</strong> &nbsp;&bull;&nbsp; 🏀 <strong>Basketball</strong> &nbsp;&bull;&nbsp; 🏊‍♂️ <strong>Swimming</strong> &nbsp;&bull;&nbsp; 🏄‍♂️ <strong>Surfing</strong> &nbsp;&bull;&nbsp; ⛳ <strong>Golf</strong> &nbsp;&bull;&nbsp; 🎾 <strong>Tennis</strong>
   </p>
 </div>
-
----
-
-## 🎨 Portfolio {#portfolio}
-
-<div class="section-content">
-  <!-- Add your portfolio projects here -->
-  <p style="color: var(--global-text-color-light); font-style: italic;">To be added...</p>
-</div>
-
-<p>🔗 <a href="{{ '/portfolio/' | relative_url }}">View full portfolio →</a></p>
-
----
-
-## 📄 CV {#cv}
-
-<p>📥 <a href="{{ '/cv/' | relative_url }}">View full CV →</a></p>
