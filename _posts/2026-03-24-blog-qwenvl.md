@@ -10,9 +10,9 @@ tags:
 read_time: true
 ---
 
-> **TL;DR:**  本文系统梳理了 Qwen-VL 系列四代视觉语言模型的技术演进——从基础的视觉-语言对齐（[Qwen-VL](https://arxiv.org/abs/2308.12966)），到原生动态分辨率与多模态位置编码（[Qwen2-VL](https://arxiv.org/abs/2409.12191)），再到工程级推理效率优化（[Qwen2.5-VL](https://arxiv.org/abs/2502.13923)），最终走向更深层的视觉-语言融合（[Qwen3-VL](https://arxiv.org/abs/2511.21631)）。
+> **TL;DR:**  本文系统梳理了 Qwen-VL 系列四代模型的技术演进：从初代 [Qwen-VL](https://arxiv.org/abs/2308.12966) 建立了视觉-语言对齐和三阶段训练流程；到 [Qwen2-VL](https://arxiv.org/abs/2409.12191) 引入动态分辨率、M-RoPE 和视频输入；再到 [Qwen2.5-VL](https://arxiv.org/abs/2502.13923) 主要补推理效率、视频时间建模和后训练数据质量；最终走向更深层的视觉-语言融合（[Qwen3-VL](https://arxiv.org/abs/2511.21631)）。
 
-多模态大模型（Multimodal Large Language Models, MLLMs）正在成为 AI 领域最活跃的研究方向之一。在众多视觉语言模型中，阿里巴巴的 Qwen-VL 系列以其清晰的迭代路径和扎实的工程设计备受关注。从 2023 年初代 Qwen-VL 的发布到 2025 年 Qwen3-VL 的亮相，四代模型在架构设计、位置编码方案和训练策略上展现出一条连贯且富有洞见的演进主线。
+多模态大模型（Multimodal Large Language Models, MLLMs）是 AI 领域最活跃的研究方向之一。在众多视觉语言模型中，Qwen-VL 系列不只是因为其开源模型屠榜各大 benchmark，更以其清晰的迭代路径和扎实的工程设计备受关注。从 2023 年初代 Qwen-VL 的发布到 2025 年 Qwen3-VL 的亮相，四代模型在架构设计、位置编码方案和训练策略上展现出一条连贯且富有洞见的演进主线。
 
 本文将沿时间线逐一解析每代模型的核心技术贡献。全文结构如下：
 
@@ -25,7 +25,7 @@ read_time: true
 
 ***
 
-# 1. Part I: [Qwen-VL](https://arxiv.org/abs/2308.12966) —— 奠基之作（2023）
+# 1. Part I: [Qwen-VL](https://arxiv.org/abs/2308.12966)：三阶段视觉-语言对齐，奠基之作（2023）
 
 ![](/images/Qwen-vl/0.png)
 
