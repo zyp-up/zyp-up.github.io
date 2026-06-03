@@ -595,7 +595,7 @@ redirect_from:
 
 ## 📄 CV {#cv}
 
-<p>📥 <a href="{{ '/cv/' | relative_url }}">View full CV →</a></p>
+<p>📥 <a href="{{ '/cv/resume_ng_zyp_aml_0603.pdf' | relative_url }}">View full CV →</a></p>
 
 ---
 
