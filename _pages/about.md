@@ -584,11 +584,11 @@ redirect_from:
 ## 🧐 About Me {#about-me}
 
 <div class="section-content">
-  <p>👀 <strong>Hi, I'm Yunpeng Zhang</strong>, an AI practitioner passionate about pushing the boundaries of large model capabilities. My core work revolves around post-training of VLMs/LLMs, including SFT, RL, and data recipe design. Beyond that, I'm actively exploring AIGC, Agentic RL, and World Models &mdash; <em>always learning, always building</em>.</p>
+  <p><strong>Hi, I'm Yunpeng Zhang</strong>, an AI practitioner passionate about pushing the boundaries of large model capabilities. My core work revolves around post-training of VLMs/LLMs, including SFT, RL, and data recipe design. Beyond that, I'm actively exploring AIGC, Agentic RL, and World Models &mdash; <em>always learning, always building</em>.</p>
 
-  <p>🧠 I'm committed to turning research ideas into practical, reproducible engineering work. I believe AI is not a weapon to replace humanity, but a force to liberate human productivity &mdash; freeing people to pursue the higher-value endeavors that are uniquely human.</p>
+  <p>I'm committed to turning research ideas into practical, reproducible engineering work. I believe AI is not a weapon to replace humanity, but a force to liberate human productivity &mdash; freeing people to pursue the higher-value endeavors that are uniquely human.</p>
 
-  <p>🤝 Open to discussion and collaboration on AI-related projects &mdash; feel free to reach out!</p>
+  <p>Open to discussion and collaboration on AI-related projects &mdash; feel free to reach out!</p>
 </div>
 
 ---
@@ -619,7 +619,7 @@ redirect_from:
 </div>
 
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1em;">
-  <p style="margin: 0;">📖 <a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
+  <p style="margin: 0;"><a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
   <div style="font-size: 0.85em; color: var(--global-text-color-light); text-align: right; line-height: 1.4;">
     <em>正在奋笔疾书中，争取每月更新 💪</em><br>
     <em>Writing hard and aiming for monthly updates.</em>
@@ -634,7 +634,7 @@ redirect_from:
   Coming soon...
 </div>
 
-<p>📄 <a href="{{ '/publications/' | relative_url }}">View all publications →</a></p>
+<p><a href="{{ '/publications/' | relative_url }}">View all publications →</a></p>
 
 ---
 
@@ -778,7 +778,7 @@ redirect_from:
 
 ---
 
-## 🎯 Hobbies {#hobbies}
+## Hobbies {#hobbies}
 
 <div class="section-content">
   <p style="font-size: 1.1em; line-height: 1.8;">
