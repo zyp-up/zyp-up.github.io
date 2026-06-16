@@ -584,7 +584,7 @@ redirect_from:
 ## 🧐 About Me {#about-me}
 
 <div class="section-content">
-  <p><strong>Hi, I'm Yunpeng</strong>, an AI practitioner passionate about pushing the boundaries of large model capabilities. My core work revolves around post-training of VLMs/LLMs, especially in RL/RLVR, reward design, data recipes and so on. Beyond that, I'm actively exploring AIGC, Agentic RL, and World Models &mdash; <em>always learning, always building</em>.</p>
+  <p><strong>Hi, I'm Yunpeng</strong>, an AI practitioner passionate about pushing the boundaries of large model capabilities. My core work revolves around post-training of VLMs/LLMs, especially in RL/RLVR, reward design, data recipes and so on. Beyond that, I'm actively exploring AIGC, Agentic RL, World Models, Latent Reasoning &mdash; <em>always learning, always building</em>.</p>
 
   <p>I'm committed to turning research ideas into practical, reproducible engineering work. I believe AI is not a weapon to replace humanity, but a force to liberate human productivity &mdash; freeing people to pursue the higher-value endeavors that are uniquely human.</p>
 
