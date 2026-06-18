@@ -621,8 +621,7 @@ redirect_from:
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1em;">
   <p style="margin: 0;"><a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
   <div style="font-size: 0.85em; color: var(--global-text-color-light); text-align: right; line-height: 1.4;">
-    <em>正在奋笔疾书中，争取每月更新 💪</em><br>
-    <em>Writing hard and aiming for monthly updates.</em>
+    <em>Writing hard and aiming for monthly updates 💪 </em>
   </div>
 </div>
 
