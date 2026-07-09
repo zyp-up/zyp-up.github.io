@@ -63,8 +63,10 @@ author:
   keybase          :                             # Keybase 用户名
   instagram        :                             # Instagram 用户名
   lastfm           :                             # Last.fm 用户名（音乐平台）
-  linkedin         : "yunpeng-zhang" # LinkedIn 用户名
+  linkedin         : "Yunpeng Zhang" # LinkedIn 用户名
   linkedin_url     : "https://www.linkedin.com/in/yunpeng-zhang-83627b3ab/" # LinkedIn 完整链接（可与显示用户名不同）
+  xiaohongshu      : "@Y0" # 小红书显示名
+  xiaohongshu_url  : "https://www.xiaohongshu.com/user/profile/5e9b0f590000000001002479" # 小红书完整链接
   mastodon         :                             # Mastodon 个人主页完整 URL
   medium           :                             # Medium 个人主页 URL
   pinterest        :                             # Pinterest 用户名

@@ -141,6 +141,9 @@
         {% endif %}
         <li><a href="{{ linkedin_href }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-linkedin icon-pad-right" aria-hidden="true"></i>{{ author.linkedin }}</a></li>
       {% endif %}      
+      {% if author.xiaohongshu and author.xiaohongshu_url %}
+        <li><a href="{{ author.xiaohongshu_url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-book-open icon-pad-right" aria-hidden="true"></i>{{ author.xiaohongshu }}</a></li>
+      {% endif %}
       {% if author.mastodon %}
         <li><a href="{{ author.mastodon }}"><i class="fab fa-fw fa-mastodon icon-pad-right" aria-hidden="true"></i>Mastodon</a></li>
       {% endif %}
