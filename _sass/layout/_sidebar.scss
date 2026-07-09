@@ -261,6 +261,17 @@
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 
+  .xiaohongshu-icon {
+    border-radius: 0.18em;
+    display: inline-block;
+    height: 1em;
+    max-width: 1em;
+    object-fit: cover;
+    padding: 0;
+    width: 1em;
+    vertical-align: -0.1em;
+  }
+
   @include breakpoint($large) {
     display: block;
     position: relative;
