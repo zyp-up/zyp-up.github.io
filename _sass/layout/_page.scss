@@ -11,7 +11,7 @@
   animation: intro 0.3s both;
   animation-delay: 0.35s;
 
-  @include breakpoint($x-large) {
+  @include breakpoint($large) {
     max-width: none;
     width: 100%;
     padding-left: 2.5em;
@@ -38,6 +38,30 @@
     .page__meta,
     .page__share {
       @include full();
+    }
+  }
+}
+
+#main:not(.no-sidebar) {
+  @include breakpoint($large) {
+    display: grid;
+    grid-template-columns: clamp(190px, 12vw, 200px) minmax(0, 1fr);
+    column-gap: clamp(48px, 3.25vw, 84px);
+    align-items: start;
+
+    .sidebar,
+    .page,
+    .archive {
+      float: none;
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+    }
+
+    .page,
+    .archive {
+      padding-left: 0;
+      padding-right: clamp(24px, 2.5vw, 56px);
     }
   }
 }
