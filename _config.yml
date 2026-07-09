@@ -23,7 +23,7 @@ author:
   name             : "Yunpeng Zhang"             # 侧边栏显示的姓名（粗体大字）
   pronouns         :                             # 人称代词，如 "he/him"、"she/her"，不需要可留空
   bio              : "Stay foolish. Stay hungry." # 姓名下方的一句话简介，如 "博士研究生"、"助理教授"
-  location         : "Shenzhen, China / Urbana-Champaign, USA" # 地理位置，显示📍图标 + 文字，如 "Beijing, China"
+  location         : "Urbana-Champaign, USA" # 地理位置，显示📍图标 + 文字，如 "Beijing, China"
   employer         : "University of Illinois Urbana-Champaign (UIUC)" # 所属单位/学校，显示🏛图标 + 文字
   employer_url     : "https://illinois.edu/"     # 第一学校链接
   uri              :                             # 个人主页 URL，填写后姓名变为可点击链接

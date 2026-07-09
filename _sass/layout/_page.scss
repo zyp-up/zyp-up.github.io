@@ -26,6 +26,11 @@
     @include suffix(0.5 of 12);
   }
 
+  @include breakpoint($x-large) {
+    @include prefix(0.1 of 12);
+    @include suffix(0.35 of 12);
+  }
+
   .page__inner-wrap {
     @include full();
 
