@@ -646,7 +646,7 @@ redirect_from:
       <div class="education-card-content">
         <div class="education-card-header">
           <span class="education-school"><a href="https://illinois.edu/" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign (UIUC)</a></span>
-          <span class="education-meta">Urbana-Champaign · USA | 2026 Fall</span>
+          <span class="education-meta">Urbana-Champaign · USA | Aug. 2026 - Jun. 2028</span>
         </div>
         <p class="education-second-line">
           <a href="https://grainger.illinois.edu/" target="_blank" rel="noopener noreferrer">The Grainger College of Engineering</a>
@@ -665,7 +665,7 @@ redirect_from:
       <div class="education-card-content">
         <div class="education-card-header">
           <span class="education-school"><a href="https://english.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">China Jiliang University (CJLU)</a></span>
-          <span class="education-meta">Hangzhou · China | Sept 2022 - Jun 2026</span>
+          <span class="education-meta">Hangzhou · China | Sep. 2022 - Jun. 2026</span>
         </div>
         <p class="education-second-line">
           <a href="https://lxxy.cjlu.edu.cn/" target="_blank" rel="noopener noreferrer">Liangxin College</a>
