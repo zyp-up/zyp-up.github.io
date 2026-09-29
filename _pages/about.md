@@ -603,12 +603,13 @@ redirect_from:
 
 <div class="blog-posts-container">
   <div class="blog-posts-scroll">
-    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+    {% assign english_posts = site.posts | where: 'lang', 'en' %}
+    {% assign sorted_posts = english_posts | sort: 'date' | reverse %}
     {% for post in sorted_posts limit: 20 %}
       <div class="blog-post-item">
         <div class="blog-post-meta">
           <span class="blog-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-          <span class="blog-post-views"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:var(--global-text-color-light);"></i></span> views</span>
+          <span class="blog-post-views"><i class="fa fa-eye" aria-hidden="true"></i> <span class="counter-view-span" data-key="{{ post.view_key | default: post.url | slugify }}"><i class="fa fa-spinner fa-spin" style="font-size:0.8em; color:var(--global-text-color-light);"></i></span> views</span>
         </div>
         <h3 class="blog-post-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -619,7 +620,7 @@ redirect_from:
 </div>
 
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1em;">
-  <p style="margin: 0;"><a href="{{ '/blog/' | relative_url }}">View all blog posts →</a></p>
+  <p style="margin: 0;"><a href="{{ '/blog/en/' | relative_url }}">View all blog posts →</a></p>
   <div style="font-size: 0.85em; color: var(--global-text-color-light); text-align: right; line-height: 1.4;">
     <em>Writing hard and aiming for monthly updates 💪 </em>
   </div>

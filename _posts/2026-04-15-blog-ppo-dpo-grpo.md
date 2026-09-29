@@ -1,7 +1,12 @@
 ---
 title: '从 PPO 到 DPO 再到 GRPO：经典大模型强化学习算法解读'
 date: 2026-04-15
-permalink: /posts/2026/04/ppo-dpo-grpo/
+permalink: /posts/cn/2026/04/ppo-dpo-grpo/
+redirect_from:
+  - /posts/2026/04/ppo-dpo-grpo/
+lang: zh-CN
+translation_key: ppo-dpo-grpo
+view_key: posts-2026-04-ppo-dpo-grpo
 reading_time: "90 minutes read"
 tags:
   - Post-training
@@ -618,4 +623,3 @@ PPO、DPO、GRPO 可以看作三条不同路径：完整 RL、去 RL 化、以�
 <br>
 
 *本文为个人论文阅读笔记整理，如有疏漏欢迎指正。*
-

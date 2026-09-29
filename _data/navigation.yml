@@ -10,7 +10,7 @@
 main:
   - title: "Blog Posts"
     url: /#blog-posts
-    target_url: /blog/
+    target_url: /blog/en/
     
   - title: "Publications"
     url: /#publications

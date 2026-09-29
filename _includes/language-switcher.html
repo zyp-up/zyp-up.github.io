@@ -1,0 +1,21 @@
+{% assign switcher_translations = site.posts | where: "translation_key", page.translation_key %}
+{% assign switcher_en = nil %}
+{% assign switcher_zh = nil %}
+{% for translation in switcher_translations %}
+  {% if translation.lang == "en" %}
+    {% assign switcher_en = translation %}
+  {% elsif translation.lang == "zh-CN" %}
+    {% assign switcher_zh = translation %}
+  {% endif %}
+{% endfor %}
+
+{% if page.translation_key %}
+  <nav class="language-switcher" aria-label="Article language">
+    {% if switcher_zh %}
+      <a href="{{ switcher_zh.url | relative_url }}" lang="zh-CN" hreflang="zh-CN"{% if page.lang == "zh-CN" %} class="active" aria-current="page"{% endif %}>Chinese</a>
+    {% endif %}
+    {% if switcher_en %}
+      <a href="{{ switcher_en.url | relative_url }}" lang="en" hreflang="en"{% if page.lang == "en" %} class="active" aria-current="page"{% endif %}>English</a>
+    {% endif %}
+  </nav>
+{% endif %}

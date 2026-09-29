@@ -2,7 +2,12 @@
 title: 'CapRL: 用强化学习激发视觉语言模型的描述能力'
 date: 2026-03-18
 reading_time: "30 minutes read"
-permalink: /posts/2026/03/CapRL/
+permalink: /posts/cn/2026/03/CapRL/
+redirect_from:
+  - /posts/2026/03/CapRL/
+lang: zh-CN
+translation_key: caprl
+view_key: posts-2026-03-caprl
 tags:
   - VLM
   - RL

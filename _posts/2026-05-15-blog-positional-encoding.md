@@ -1,7 +1,12 @@
 ---
 title: '位置编码的发展历程：从绝对、相对到多模态旋转编码'
 date: 2026-05-15
-permalink: /posts/2026/05/positional-encoding/
+permalink: /posts/cn/2026/05/positional-encoding/
+redirect_from:
+  - /posts/2026/05/positional-encoding/
+lang: zh-CN
+translation_key: positional-encoding
+view_key: posts-2026-05-positional-encoding
 reading_time: "30 minutes read"
 tags:
   - Positional Encoding

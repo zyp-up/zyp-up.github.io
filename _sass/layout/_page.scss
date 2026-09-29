@@ -2,6 +2,41 @@
    SINGLE PAGE/POST
    ========================================================================== */
 
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0 1rem;
+  padding: 0.25rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--global-bg-color) 94%, #fff 6%);
+
+  a {
+    padding: 0.38rem 0.72rem;
+    border-radius: 7px;
+    color: var(--global-text-color-light);
+    font-size: $type-size-6;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--global-text-color);
+      background: var(--global-thead-color);
+    }
+
+    &.active {
+      color: var(--global-bg-color);
+      background: var(--global-text-color);
+    }
+  }
+}
+
+.language-switcher--archive {
+  margin-bottom: 1.35rem;
+}
+
 #main {
   @include container;
   @include clearfix;

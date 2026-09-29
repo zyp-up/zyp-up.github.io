@@ -2,7 +2,12 @@
 title: '从 Qwen-VL 到 Qwen3-VL：多模态大模型的四代进化之路'
 date: 2026-06-15
 reading_time: "1h read"
-permalink: /posts/2026/06/qwen-vl/
+permalink: /posts/cn/2026/06/qwen-vl/
+redirect_from:
+  - /posts/2026/06/qwen-vl/
+lang: zh-CN
+translation_key: qwen-vl
+view_key: posts-2026-06-qwen-vl
 tags:
   - VLM
   - Qwen

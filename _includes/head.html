@@ -4,6 +4,22 @@
 
 {% include seo.html %}
 
+{% if page.translation_key %}
+  {% assign translations = site.posts | where: "translation_key", page.translation_key %}
+  {% for translation in translations %}
+    {% if translation.lang == "zh-CN" %}
+      <link rel="alternate" hreflang="zh-CN" href="{{ translation.url | absolute_url }}">
+    {% elsif translation.lang == "en" %}
+      <link rel="alternate" hreflang="en" href="{{ translation.url | absolute_url }}">
+      <link rel="alternate" hreflang="x-default" href="{{ translation.url | absolute_url }}">
+    {% endif %}
+  {% endfor %}
+{% elsif page.url contains "/blog/" %}
+  <link rel="alternate" hreflang="zh-CN" href="{{ '/blog/cn/' | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ '/blog/en/' | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/blog/en/' | absolute_url }}">
+{% endif %}
+
 <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
